@@ -300,8 +300,8 @@ lazy val zioHttpExample = (project in file("zio-http-example"))
       `zio-config`,
       `zio-config-magnolia`,
       `zio-config-typesafe`,
-      "dev.zio" %% "zio-metrics-connectors"            % "2.3.1",
-      "dev.zio" %% "zio-metrics-connectors-prometheus" % "2.3.1",
+      "dev.zio" %% "zio-metrics-connectors"            % "2.4.0",
+      "dev.zio" %% "zio-metrics-connectors-prometheus" % "2.4.0",
     ),
   )
   .dependsOn(zioHttpJVM, zioHttpCli, zioHttpGen)
@@ -426,7 +426,7 @@ lazy val docs = project
       `zio-config-typesafe`,
     ),
     publish / skip                             := true,
-    mdocOut := file("website/docs"),
+    mdocOut                                    := file("website/docs"),
     mdocVariables ++= Map(
       "ZIO_VERSION"        -> ZioVersion,
       "ZIO_SCHEMA_VERSION" -> ZioSchemaVersion,
