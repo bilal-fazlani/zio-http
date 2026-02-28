@@ -382,21 +382,21 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated       = OpenAPIGen.fromEndpoints("Generic Endpoint", "1.0", genericEndpoint)
         val json            = toJsonAst(generated)
         val expectedJson    = """{
-                             |  "openapi" : "3.1.0",
-                             |  "info" : {
-                             |    "title" : "Generic Endpoint",
-                             |    "version" : "1.0"
-                             |  },
-                             |  "paths" : {
-                             |    "/users" : {
-                             |      "description" : "Get all users\n\n",
-                             |      "get" : {
-                             |        "description" : "Get all users\n\n"
-                             |      }
-                             |    }
-                             |  },
-                             |  "components" : {}
-                             |}""".stripMargin
+                                |  "openapi" : "3.1.0",
+                                |  "info" : {
+                                |    "title" : "Generic Endpoint",
+                                |    "version" : "1.0"
+                                |  },
+                                |  "paths" : {
+                                |    "/users" : {
+                                |      "description" : "Get all users\n\n",
+                                |      "get" : {
+                                |        "description" : "Get all users\n\n"
+                                |      }
+                                |    }
+                                |  },
+                                |  "components" : {}
+                                |}""".stripMargin
         assertTrue(json == toJsonAst(expectedJson))
       },
       test("simple endpoint to OpenAPI") {
@@ -1375,98 +1375,98 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated = OpenAPIGen.fromEndpoints("Simple Endpoint", "1.0", optionalPayloadEndpoint)
         val json      = toJsonAst(generated)
         val expected  = """{
-                         |  "openapi" : "3.1.0",
-                         |  "info" : {
-                         |    "title" : "Simple Endpoint",
-                         |    "version" : "1.0"
-                         |  },
-                         |  "paths" : {
-                         |    "/withPayload" : {
-                         |      "get" : {
-                         |        "requestBody" : {
-                         |          "content" : {
-                         |            "application/json" : {
-                         |              "schema" : {
-                         |                "anyOf" : [
-                         |                  {
-                         |                    "type" : "null"
-                         |                  },
-                         |                  {
-                         |                    "$ref" : "#/components/schemas/Payload"
-                         |                  }
-                         |                ]
-                         |              }
-                         |            }
-                         |          },
-                         |          "required" : false
-                         |        },
-                         |        "responses" : {
-                         |          "200" : {
-                         |            "content" : {
-                         |              "application/json" : {
-                         |                "schema" : {
-                         |                  "$ref" : "#/components/schemas/SimpleOutputBody"
-                         |                }
-                         |              }
-                         |            }
-                         |          },
-                         |          "404" : {
-                         |            "content" : {
-                         |              "application/json" : {
-                         |                "schema" : {
-                         |                  "$ref" : "#/components/schemas/NotFoundError"
-                         |                }
-                         |              }
-                         |            }
-                         |          }
-                         |        }
-                         |      }
-                         |    }
-                         |  },
-                         |  "components" : {
-                         |    "schemas" : {
-                         |      "NotFoundError" : {
-                         |        "type" : "object",
-                         |        "properties" : {
-                         |          "message" : {
-                         |            "type" : "string"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "message"
-                         |        ]
-                         |      },
-                         |      "Payload" : {
-                         |        "type" : "object",
-                         |        "properties" : {
-                         |          "content" : {
-                         |            "type" : "string"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "content"
-                         |        ],
-                         |        "description" : "A simple payload"
-                         |      },
-                         |      "SimpleOutputBody" : {
-                         |        "type" : "object",
-                         |        "properties" : {
-                         |          "userName" : {
-                         |            "type" : "string"
-                         |          },
-                         |          "score" : {
-                         |            "type" : "integer",
-                         |            "format" : "int32"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "userName",
-                         |          "score"
-                         |        ]
-                         |      }
-                         |    }
-                         |  }
-                         |}""".stripMargin
+                          |  "openapi" : "3.1.0",
+                          |  "info" : {
+                          |    "title" : "Simple Endpoint",
+                          |    "version" : "1.0"
+                          |  },
+                          |  "paths" : {
+                          |    "/withPayload" : {
+                          |      "get" : {
+                          |        "requestBody" : {
+                          |          "content" : {
+                          |            "application/json" : {
+                          |              "schema" : {
+                          |                "anyOf" : [
+                          |                  {
+                          |                    "type" : "null"
+                          |                  },
+                          |                  {
+                          |                    "$ref" : "#/components/schemas/Payload"
+                          |                  }
+                          |                ]
+                          |              }
+                          |            }
+                          |          },
+                          |          "required" : false
+                          |        },
+                          |        "responses" : {
+                          |          "200" : {
+                          |            "content" : {
+                          |              "application/json" : {
+                          |                "schema" : {
+                          |                  "$ref" : "#/components/schemas/SimpleOutputBody"
+                          |                }
+                          |              }
+                          |            }
+                          |          },
+                          |          "404" : {
+                          |            "content" : {
+                          |              "application/json" : {
+                          |                "schema" : {
+                          |                  "$ref" : "#/components/schemas/NotFoundError"
+                          |                }
+                          |              }
+                          |            }
+                          |          }
+                          |        }
+                          |      }
+                          |    }
+                          |  },
+                          |  "components" : {
+                          |    "schemas" : {
+                          |      "NotFoundError" : {
+                          |        "type" : "object",
+                          |        "properties" : {
+                          |          "message" : {
+                          |            "type" : "string"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "message"
+                          |        ]
+                          |      },
+                          |      "Payload" : {
+                          |        "type" : "object",
+                          |        "properties" : {
+                          |          "content" : {
+                          |            "type" : "string"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "content"
+                          |        ],
+                          |        "description" : "A simple payload"
+                          |      },
+                          |      "SimpleOutputBody" : {
+                          |        "type" : "object",
+                          |        "properties" : {
+                          |          "userName" : {
+                          |            "type" : "string"
+                          |          },
+                          |          "score" : {
+                          |            "type" : "integer",
+                          |            "format" : "int32"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "userName",
+                          |          "score"
+                          |        ]
+                          |      }
+                          |    }
+                          |  }
+                          |}""".stripMargin
         assertTrue(json == toJsonAst(expected))
       },
       test("alternative input") {
@@ -2065,93 +2065,93 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated = OpenAPIGen.fromEndpoints("Simple Endpoint", "1.0", endpoint)
         val json      = toJsonAst(generated)
         val expected  = """{
-                         |  "openapi" : "3.1.0",
-                         |  "info" : {
-                         |    "title" : "Simple Endpoint",
-                         |    "version" : "1.0"
-                         |  },
-                         |  "paths" : {
-                         |    "/test-form" : {
-                         |      "get" : {
-                         |        "responses" : {
-                         |          "default" :
-                         |            {
-                         |            "content" : {
-                         |              "multipart/form-data" : {
-                         |                "schema" :
-                         |                  {
-                         |                  "type" :
-                         |                    "object",
-                         |                  "properties" : {
-                         |                    "image" : {
-                         |                      "type" :
-                         |                        "string",
-                         |                      "contentEncoding" : "binary",
-                         |                      "contentMediaType" : "application/octet-stream"
-                         |                    },
-                         |                    "height" : {
-                         |                      "type" :
-                         |                        "integer",
-                         |                      "format" : "int32"
-                         |                    },
-                         |                    "metadata" : {
-                         |                      "$ref" : "#/components/schemas/ImageMetadata"
-                         |                    },
-                         |                    "title" : {
-                         |                      "type" :
-                         |                        [
-                         |                        "string",
-                         |                        "null"
-                         |                      ],
-                         |                      "description" : "Test doc\n\n"
-                         |                    },
-                         |                    "width" : {
-                         |                      "type" :
-                         |                        "integer",
-                         |                      "format" : "int32"
-                         |                    }
-                         |                  },
-                         |                  "additionalProperties" :
-                         |                    false,
-                         |                  "required" : [
-                         |                    "image",
-                         |                    "width",
-                         |                    "height",
-                         |                    "metadata"
-                         |                  ]
-                         |                }
-                         |              }
-                         |            }
-                         |          }
-                         |        }
-                         |      }
-                         |    }
-                         |  },
-                         |  "components" : {
-                         |    "schemas" : {
-                         |      "ImageMetadata" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" :
-                         |              "string"
-                         |          },
-                         |          "size" : {
-                         |            "type" :
-                         |              "integer",
-                         |            "format" : "int32"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name",
-                         |          "size"
-                         |        ]
-                         |      }
-                         |    }
-                         |  }
-                         |}""".stripMargin
+                          |  "openapi" : "3.1.0",
+                          |  "info" : {
+                          |    "title" : "Simple Endpoint",
+                          |    "version" : "1.0"
+                          |  },
+                          |  "paths" : {
+                          |    "/test-form" : {
+                          |      "get" : {
+                          |        "responses" : {
+                          |          "default" :
+                          |            {
+                          |            "content" : {
+                          |              "multipart/form-data" : {
+                          |                "schema" :
+                          |                  {
+                          |                  "type" :
+                          |                    "object",
+                          |                  "properties" : {
+                          |                    "image" : {
+                          |                      "type" :
+                          |                        "string",
+                          |                      "contentEncoding" : "binary",
+                          |                      "contentMediaType" : "application/octet-stream"
+                          |                    },
+                          |                    "height" : {
+                          |                      "type" :
+                          |                        "integer",
+                          |                      "format" : "int32"
+                          |                    },
+                          |                    "metadata" : {
+                          |                      "$ref" : "#/components/schemas/ImageMetadata"
+                          |                    },
+                          |                    "title" : {
+                          |                      "type" :
+                          |                        [
+                          |                        "string",
+                          |                        "null"
+                          |                      ],
+                          |                      "description" : "Test doc\n\n"
+                          |                    },
+                          |                    "width" : {
+                          |                      "type" :
+                          |                        "integer",
+                          |                      "format" : "int32"
+                          |                    }
+                          |                  },
+                          |                  "additionalProperties" :
+                          |                    false,
+                          |                  "required" : [
+                          |                    "image",
+                          |                    "width",
+                          |                    "height",
+                          |                    "metadata"
+                          |                  ]
+                          |                }
+                          |              }
+                          |            }
+                          |          }
+                          |        }
+                          |      }
+                          |    }
+                          |  },
+                          |  "components" : {
+                          |    "schemas" : {
+                          |      "ImageMetadata" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" :
+                          |              "string"
+                          |          },
+                          |          "size" : {
+                          |            "type" :
+                          |              "integer",
+                          |            "format" : "int32"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name",
+                          |          "size"
+                          |        ]
+                          |      }
+                          |    }
+                          |  }
+                          |}""".stripMargin
         assertTrue(json == toJsonAst(expected))
       },
       test("multiple endpoint definitions") {
@@ -2449,48 +2449,48 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated = OpenAPIGen.fromEndpoints("Simple Endpoint", "1.0", endpoint)
         val json      = toJsonAst(generated)
         val expected  = """{
-                         |  "openapi" : "3.1.0",
-                         |  "info" : {
-                         |    "title" : "Simple Endpoint",
-                         |    "version" : "1.0"
-                         |  },
-                         |  "paths" : {
-                         |    "/static" : {
-                         |      "get" : {
-                         |        "requestBody" :
-                         |          {
-                         |          "content" : {
-                         |            "application/json" : {
-                         |              "schema" :
-                         |                {
-                         |                "$ref" : "#/components/schemas/WithTransientField"
-                         |              }
-                         |            }
-                         |          },
-                         |          "required" : true
-                         |        }
-                         |      }
-                         |    }
-                         |  },
-                         |  "components" : {
-                         |    "schemas" : {
-                         |      "WithTransientField" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" :
-                         |              "string"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name"
-                         |        ]
-                         |      }
-                         |    }
-                         |  }
-                         |}""".stripMargin
+                          |  "openapi" : "3.1.0",
+                          |  "info" : {
+                          |    "title" : "Simple Endpoint",
+                          |    "version" : "1.0"
+                          |  },
+                          |  "paths" : {
+                          |    "/static" : {
+                          |      "get" : {
+                          |        "requestBody" :
+                          |          {
+                          |          "content" : {
+                          |            "application/json" : {
+                          |              "schema" :
+                          |                {
+                          |                "$ref" : "#/components/schemas/WithTransientField"
+                          |              }
+                          |            }
+                          |          },
+                          |          "required" : true
+                          |        }
+                          |      }
+                          |    }
+                          |  },
+                          |  "components" : {
+                          |    "schemas" : {
+                          |      "WithTransientField" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" :
+                          |              "string"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name"
+                          |        ]
+                          |      }
+                          |    }
+                          |  }
+                          |}""".stripMargin
         assertTrue(json == toJsonAst(expected))
       },
       test("primitive default value") {
@@ -2619,53 +2619,53 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated = OpenAPIGen.fromEndpoints("Simple Endpoint", "1.0", endpoint)
         val json      = toJsonAst(generated)
         val expected  = """{
-                         |  "openapi" : "3.1.0",
-                         |  "info" : {
-                         |    "title" : "Simple Endpoint",
-                         |    "version" : "1.0"
-                         |  },
-                         |  "paths" : {
-                         |    "/static" : {
-                         |      "get" : {
-                         |        "requestBody" :
-                         |          {
-                         |          "content" : {
-                         |            "application/json" : {
-                         |              "schema" :
-                         |                {
-                         |                "$ref" : "#/components/schemas/WithOptionalField"
-                         |              }
-                         |            }
-                         |          },
-                         |          "required" : true
-                         |        }
-                         |      }
-                         |    }
-                         |  },
-                         |  "components" : {
-                         |    "schemas" : {
-                         |      "WithOptionalField" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" :
-                         |              "string"
-                         |          },
-                         |          "age" : {
-                         |            "type" :
-                         |              "integer",
-                         |            "format" : "int32"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name"
-                         |        ]
-                         |      }
-                         |    }
-                         |  }
-                         |}""".stripMargin
+                          |  "openapi" : "3.1.0",
+                          |  "info" : {
+                          |    "title" : "Simple Endpoint",
+                          |    "version" : "1.0"
+                          |  },
+                          |  "paths" : {
+                          |    "/static" : {
+                          |      "get" : {
+                          |        "requestBody" :
+                          |          {
+                          |          "content" : {
+                          |            "application/json" : {
+                          |              "schema" :
+                          |                {
+                          |                "$ref" : "#/components/schemas/WithOptionalField"
+                          |              }
+                          |            }
+                          |          },
+                          |          "required" : true
+                          |        }
+                          |      }
+                          |    }
+                          |  },
+                          |  "components" : {
+                          |    "schemas" : {
+                          |      "WithOptionalField" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" :
+                          |              "string"
+                          |          },
+                          |          "age" : {
+                          |            "type" :
+                          |              "integer",
+                          |            "format" : "int32"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name"
+                          |        ]
+                          |      }
+                          |    }
+                          |  }
+                          |}""".stripMargin
         assertTrue(json == toJsonAst(expected))
       },
       test("nested product") {
@@ -2673,90 +2673,90 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated = OpenAPIGen.fromEndpoints("Simple Endpoint", "1.0", endpoint)
         val json      = toJsonAst(generated)
         val expected  = """{
-                         |  "openapi" : "3.1.0",
-                         |  "info" : {
-                         |    "title" : "Simple Endpoint",
-                         |    "version" : "1.0"
-                         |  },
-                         |  "paths" : {
-                         |    "/static" : {
-                         |      "get" : {
-                         |        "requestBody" :
-                         |          {
-                         |          "content" : {
-                         |            "application/json" : {
-                         |              "schema" :
-                         |                {
-                         |                "$ref" : "#/components/schemas/NestedProduct"
-                         |              }
-                         |            }
-                         |          },
-                         |          "required" : true
-                         |        }
-                         |      }
-                         |    }
-                         |  },
-                         |  "components" : {
-                         |    "schemas" : {
-                         |      "ImageMetadata" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" :
-                         |              "string"
-                         |          },
-                         |          "size" : {
-                         |            "type" :
-                         |              "integer",
-                         |            "format" : "int32"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name",
-                         |          "size"
-                         |        ]
-                         |      },
-                         |      "NestedProduct" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {
-                         |          "imageMetadata" : {
-                         |            "$ref" : "#/components/schemas/ImageMetadata"
-                         |          },
-                         |          "withOptionalField" : {
-                         |            "$ref" : "#/components/schemas/WithOptionalField"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "imageMetadata",
-                         |          "withOptionalField"
-                         |        ]
-                         |      },
-                         |      "WithOptionalField" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" :
-                         |              "string"
-                         |          },
-                         |          "age" : {
-                         |            "type" :
-                         |              "integer",
-                         |            "format" : "int32"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name"
-                         |        ]
-                         |      }
-                         |    }
-                         |  }
-                         |}""".stripMargin
+                          |  "openapi" : "3.1.0",
+                          |  "info" : {
+                          |    "title" : "Simple Endpoint",
+                          |    "version" : "1.0"
+                          |  },
+                          |  "paths" : {
+                          |    "/static" : {
+                          |      "get" : {
+                          |        "requestBody" :
+                          |          {
+                          |          "content" : {
+                          |            "application/json" : {
+                          |              "schema" :
+                          |                {
+                          |                "$ref" : "#/components/schemas/NestedProduct"
+                          |              }
+                          |            }
+                          |          },
+                          |          "required" : true
+                          |        }
+                          |      }
+                          |    }
+                          |  },
+                          |  "components" : {
+                          |    "schemas" : {
+                          |      "ImageMetadata" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" :
+                          |              "string"
+                          |          },
+                          |          "size" : {
+                          |            "type" :
+                          |              "integer",
+                          |            "format" : "int32"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name",
+                          |          "size"
+                          |        ]
+                          |      },
+                          |      "NestedProduct" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {
+                          |          "imageMetadata" : {
+                          |            "$ref" : "#/components/schemas/ImageMetadata"
+                          |          },
+                          |          "withOptionalField" : {
+                          |            "$ref" : "#/components/schemas/WithOptionalField"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "imageMetadata",
+                          |          "withOptionalField"
+                          |        ]
+                          |      },
+                          |      "WithOptionalField" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" :
+                          |              "string"
+                          |          },
+                          |          "age" : {
+                          |            "type" :
+                          |              "integer",
+                          |            "format" : "int32"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name"
+                          |        ]
+                          |      }
+                          |    }
+                          |  }
+                          |}""".stripMargin
         assertTrue(json == toJsonAst(expected))
       },
       test("generated example") {
@@ -2764,92 +2764,92 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated = OpenAPIGen.fromEndpoints("Simple Endpoint", "1.0", genExamples = true, endpoint)
         val json      = toJsonAst(generated)
         val expected  = """{
-                         |  "openapi" : "3.1.0",
-                         |  "info" : {
-                         |    "title" : "Simple Endpoint",
-                         |    "version" : "1.0"
-                         |  },
-                         |  "paths" : {
-                         |    "/static" : {
-                         |      "get" : {
-                         |        "requestBody" : {
-                         |          "content" : {
-                         |            "application/json" : {
-                         |              "schema" : {
-                         |                "$ref" : "#/components/schemas/NestedProduct"
-                         |              },
-                         |              "examples" : {
-                         |                "generated" : {
-                         |                  "value" : {
-                         |                    "imageMetadata" : {
-                         |                      "name" : "",
-                         |                      "size" : 0
-                         |                    },
-                         |                    "withOptionalField" : {
-                         |                      "name" : "",
-                         |                      "age" : 0
-                         |                    }
-                         |                  }
-                         |                }
-                         |              }
-                         |            }
-                         |          },
-                         |          "required" : true
-                         |        }
-                         |      }
-                         |    }
-                         |  },
-                         |  "components" : {
-                         |    "schemas" : {
-                         |      "ImageMetadata" : {
-                         |        "type" : "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" : "string"
-                         |          },
-                         |          "size" : {
-                         |            "type" : "integer",
-                         |            "format" : "int32"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name",
-                         |          "size"
-                         |        ]
-                         |      },
-                         |      "NestedProduct" : {
-                         |        "type" : "object",
-                         |        "properties" : {
-                         |          "imageMetadata" : {
-                         |            "$ref" : "#/components/schemas/ImageMetadata"
-                         |          },
-                         |          "withOptionalField" : {
-                         |            "$ref" : "#/components/schemas/WithOptionalField"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "imageMetadata",
-                         |          "withOptionalField"
-                         |        ]
-                         |      },
-                         |      "WithOptionalField" : {
-                         |        "type" : "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" : "string"
-                         |          },
-                         |          "age" : {
-                         |            "type" : "integer",
-                         |            "format" : "int32"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name"
-                         |        ]
-                         |      }
-                         |    }
-                         |  }
-                         |}""".stripMargin
+                          |  "openapi" : "3.1.0",
+                          |  "info" : {
+                          |    "title" : "Simple Endpoint",
+                          |    "version" : "1.0"
+                          |  },
+                          |  "paths" : {
+                          |    "/static" : {
+                          |      "get" : {
+                          |        "requestBody" : {
+                          |          "content" : {
+                          |            "application/json" : {
+                          |              "schema" : {
+                          |                "$ref" : "#/components/schemas/NestedProduct"
+                          |              },
+                          |              "examples" : {
+                          |                "generated" : {
+                          |                  "value" : {
+                          |                    "imageMetadata" : {
+                          |                      "name" : "",
+                          |                      "size" : 0
+                          |                    },
+                          |                    "withOptionalField" : {
+                          |                      "name" : "",
+                          |                      "age" : 0
+                          |                    }
+                          |                  }
+                          |                }
+                          |              }
+                          |            }
+                          |          },
+                          |          "required" : true
+                          |        }
+                          |      }
+                          |    }
+                          |  },
+                          |  "components" : {
+                          |    "schemas" : {
+                          |      "ImageMetadata" : {
+                          |        "type" : "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" : "string"
+                          |          },
+                          |          "size" : {
+                          |            "type" : "integer",
+                          |            "format" : "int32"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name",
+                          |          "size"
+                          |        ]
+                          |      },
+                          |      "NestedProduct" : {
+                          |        "type" : "object",
+                          |        "properties" : {
+                          |          "imageMetadata" : {
+                          |            "$ref" : "#/components/schemas/ImageMetadata"
+                          |          },
+                          |          "withOptionalField" : {
+                          |            "$ref" : "#/components/schemas/WithOptionalField"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "imageMetadata",
+                          |          "withOptionalField"
+                          |        ]
+                          |      },
+                          |      "WithOptionalField" : {
+                          |        "type" : "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" : "string"
+                          |          },
+                          |          "age" : {
+                          |            "type" : "integer",
+                          |            "format" : "int32"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name"
+                          |        ]
+                          |      }
+                          |    }
+                          |  }
+                          |}""".stripMargin
         assertTrue(json == toJsonAst(expected))
       },
       test("enum") {
@@ -2857,44 +2857,44 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated = OpenAPIGen.fromEndpoints("Simple Endpoint", "1.0", endpoint)
         val json      = toJsonAst(generated)
         val expected  = """{
-                         |  "openapi" : "3.1.0",
-                         |  "info" : {
-                         |    "title" : "Simple Endpoint",
-                         |    "version" : "1.0"
-                         |  },
-                         |  "paths" : {
-                         |    "/static" : {
-                         |      "get" : {
-                         |        "requestBody" :
-                         |          {
-                         |          "content" : {
-                         |            "application/json" : {
-                         |              "schema" :
-                         |                {
-                         |                "$ref" : "#/components/schemas/SimpleEnum"
-                         |              }
-                         |            }
-                         |          },
-                         |          "required" : true
-                         |        }
-                         |      }
-                         |    }
-                         |  },
-                         |  "components" : {
-                         |    "schemas" : {
-                         |      "SimpleEnum" :
-                         |        {
-                         |        "type" :
-                         |          "string",
-                         |        "enum" : [
-                         |          "One",
-                         |          "Two",
-                         |          "Three"
-                         |        ]
-                         |      }
-                         |    }
-                         |  }
-                         |}""".stripMargin
+                          |  "openapi" : "3.1.0",
+                          |  "info" : {
+                          |    "title" : "Simple Endpoint",
+                          |    "version" : "1.0"
+                          |  },
+                          |  "paths" : {
+                          |    "/static" : {
+                          |      "get" : {
+                          |        "requestBody" :
+                          |          {
+                          |          "content" : {
+                          |            "application/json" : {
+                          |              "schema" :
+                          |                {
+                          |                "$ref" : "#/components/schemas/SimpleEnum"
+                          |              }
+                          |            }
+                          |          },
+                          |          "required" : true
+                          |        }
+                          |      }
+                          |    }
+                          |  },
+                          |  "components" : {
+                          |    "schemas" : {
+                          |      "SimpleEnum" :
+                          |        {
+                          |        "type" :
+                          |          "string",
+                          |        "enum" : [
+                          |          "One",
+                          |          "Two",
+                          |          "Three"
+                          |        ]
+                          |      }
+                          |    }
+                          |  }
+                          |}""".stripMargin
         assertTrue(json == toJsonAst(expected))
       },
       test("sealed trait default discriminator") {
@@ -3138,82 +3138,82 @@ object OpenAPIGenSpec extends ZIOSpecDefault {
         val generated = OpenAPIGen.fromEndpoints("Simple Endpoint", "1.0", endpoint)
         val json      = toJsonAst(generated)
         val expected  = """{
-                         |  "openapi" : "3.1.0",
-                         |  "info" : {
-                         |    "title" : "Simple Endpoint",
-                         |    "version" : "1.0"
-                         |  },
-                         |  "paths" : {
-                         |    "/static" : {
-                         |      "get" : {
-                         |        "requestBody" :
-                         |          {
-                         |          "content" : {
-                         |            "application/json" : {
-                         |              "schema" :
-                         |                {
-                         |                "$ref" : "#/components/schemas/SealedTraitNoDiscriminator"
-                         |              }
-                         |            }
-                         |          },
-                         |          "required" : true
-                         |        }
-                         |      }
-                         |    }
-                         |  },
-                         |  "components" : {
-                         |    "schemas" : {
-                         |      "One" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {}
-                         |      },
-                         |      "SealedTraitNoDiscriminator" :
-                         |        {
-                         |        "oneOf" : [
-                         |          {
-                         |            "$ref" : "#/components/schemas/One"
-                         |          },
-                         |          {
-                         |            "$ref" : "#/components/schemas/Two"
-                         |          },
-                         |          {
-                         |            "$ref" : "#/components/schemas/Three"
-                         |          }
-                         |        ]
-                         |      },
-                         |      "Three" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" :
-                         |              "string"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name"
-                         |        ]
-                         |      },
-                         |      "Two" :
-                         |        {
-                         |        "type" :
-                         |          "object",
-                         |        "properties" : {
-                         |          "name" : {
-                         |            "type" :
-                         |              "string"
-                         |          }
-                         |        },
-                         |        "required" : [
-                         |          "name"
-                         |        ]
-                         |      }
-                         |    }
-                         |  }
-                         |}""".stripMargin
+                          |  "openapi" : "3.1.0",
+                          |  "info" : {
+                          |    "title" : "Simple Endpoint",
+                          |    "version" : "1.0"
+                          |  },
+                          |  "paths" : {
+                          |    "/static" : {
+                          |      "get" : {
+                          |        "requestBody" :
+                          |          {
+                          |          "content" : {
+                          |            "application/json" : {
+                          |              "schema" :
+                          |                {
+                          |                "$ref" : "#/components/schemas/SealedTraitNoDiscriminator"
+                          |              }
+                          |            }
+                          |          },
+                          |          "required" : true
+                          |        }
+                          |      }
+                          |    }
+                          |  },
+                          |  "components" : {
+                          |    "schemas" : {
+                          |      "One" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {}
+                          |      },
+                          |      "SealedTraitNoDiscriminator" :
+                          |        {
+                          |        "oneOf" : [
+                          |          {
+                          |            "$ref" : "#/components/schemas/One"
+                          |          },
+                          |          {
+                          |            "$ref" : "#/components/schemas/Two"
+                          |          },
+                          |          {
+                          |            "$ref" : "#/components/schemas/Three"
+                          |          }
+                          |        ]
+                          |      },
+                          |      "Three" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" :
+                          |              "string"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name"
+                          |        ]
+                          |      },
+                          |      "Two" :
+                          |        {
+                          |        "type" :
+                          |          "object",
+                          |        "properties" : {
+                          |          "name" : {
+                          |            "type" :
+                          |              "string"
+                          |          }
+                          |        },
+                          |        "required" : [
+                          |          "name"
+                          |        ]
+                          |      }
+                          |    }
+                          |  }
+                          |}""".stripMargin
         assertTrue(json == toJsonAst(expected))
       },
       test("sealed trait with nested sealed trait") {
