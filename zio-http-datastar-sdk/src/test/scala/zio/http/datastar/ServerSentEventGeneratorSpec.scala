@@ -576,9 +576,9 @@ object ServerSentEventGeneratorSpec extends ZIOSpecDefault {
           datastar <- Datastar.make
           queue = datastar.queue
           html  = """<div>
-                   |  <span>Line 1</span>
-                   |  <span>Line 2</span>
-                   |</div>""".stripMargin
+                    |  <span>Line 1</span>
+                    |  <span>Line 2</span>
+                    |</div>""".stripMargin
           _     <- ServerSentEventGenerator.patchElements(html).provide(ZLayer.succeed(datastar))
           event <- queue.take
         } yield {
