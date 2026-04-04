@@ -244,7 +244,7 @@ object ClientSpec extends RoutesRunnableSpec {
       } yield results.forall(identity) // All should have failed or timed out
 
       assertZIO(test)(isTrue)
-    } @@ timeout(15.seconds),                                  // Reproducer for #2383 - connection pool exhaustion
+    } @@ timeout(15.seconds), // Reproducer for #2383 - connection pool exhaustion
   )
 
   override def spec = {
