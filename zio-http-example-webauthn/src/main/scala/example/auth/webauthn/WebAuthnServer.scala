@@ -24,7 +24,7 @@ object WebAuthnServer extends ZIOAppDefault {
     program.provide(
       UserService.live,
       WebAuthnServiceImpl.layer,
-      Server.default
+      Server.default,
     )
   }
 
