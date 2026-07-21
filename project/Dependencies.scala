@@ -33,7 +33,7 @@ object Dependencies {
       "com.aayushatharva.brotli4j" % "brotli4j" % "1.23.0" % "provided",
     )
 
-  val unroll = "com.lihaoyi" %% "unroll-annotation" % "0.1.12"
+  val unroll = "com.lihaoyi" %% "unroll-annotation" % "0.3.0"
 
   val zio                   = "dev.zio" %% "zio"                 % ZioVersion
   val `zio-cli`             = "dev.zio" %% "zio-cli"             % ZioCliVersion
